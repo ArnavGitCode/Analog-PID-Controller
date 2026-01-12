@@ -4,7 +4,7 @@ This project implements a continuous-time Proportional-Integral-Derivative (PID)
 
 ---
 
-## 🔍 Overview
+##  Overview
 
 PID controllers are widely used in closed-loop control systems across industrial, automotive, robotics, and instrumentation applications due to their simplicity, robustness, and effective tuning characteristics. Although modern controllers are commonly digital, analog PID implementations remain relevant for ultra-low-latency, power-constrained, or noise-sensitive systems.
 
@@ -15,7 +15,7 @@ In this design:
 
 ---
 
-## 🛠 System Architecture
+##  System Architecture
 
 The analog controller is structured as:
 
@@ -29,7 +29,7 @@ Each block is hardware-implemented using:
 
 ---
 
-## 🧮 Control Theory
+##   Control Theory
 
 The continuous-time PID controller is defined as:
 
@@ -49,7 +49,7 @@ Design equations and component selections map:
 
 ---
 
-## 🧱 Implementation Details
+##  Implementation Details
 
 **Components Used:**
 - Operational amplifier: LM324
@@ -65,7 +65,7 @@ Design equations and component selections map:
 
 ---
 
-## 🧩 Simulation
+##  Simulation
 
 Simulation was performed using:
 - KiCAD Spice
@@ -77,7 +77,7 @@ Simulation artifacts include:
 - Tuning variations
 
 
-## 🔬 Hardware Testing (If applicable)
+##  Hardware Testing 
 
 Hardware validation verifies:
 - Closed-loop stability
@@ -92,7 +92,7 @@ Testing was performed using:
 - DC supply
 
 
-## 🎛 Tuning Methods
+## Tuning Methods
 
 Explored tuning techniques:
 - Manual tuning
@@ -100,14 +100,7 @@ Explored tuning techniques:
 - Zero placement
 - Time constant selection
 
-Future additions could include:
-- Ziegler–Nichols tuning
-- Anti-windup
-- Derivative filtering
-
----
-
-## 🎯 Skills Demonstrated
+## Skills Demonstrated
 
 - Analog circuit design
 - Operational amplifier applications
@@ -115,16 +108,5 @@ Future additions could include:
 - Feedback systems
 - Simulation & hardware testing
 - Data analysis & tuning
-
----
-
-## 📂 Repository Structure
-
-/schematics → simulation files + PDFs
-/hardware → oscilloscope captures + photos
-/docs → math, tuning notes, theory
-/results → plots + measurements
-README.md
-
 
 ---
