@@ -1,0 +1,61 @@
+clear; close all; clc;
+
+% --- Simulation Parameters ---
+Tend = 5;                  % total simulation time (seconds)
+dt = 1e-4;                 % timestep for numerical integration
+t = 0:dt:Tend;             % time vector
+
+% --- Input Signal (Square Wave Reference) ---
+freq = 1;                  % 1 Hz square
+r = square(2*pi*freq*t);   % reference command
+
+% --- Plant (RC) Parameters ---
+R = 1; 
+C = 0.2;
+tau = R*C;                 % plant time constant
+
+% Plant state
+y = 0;             
+Y = zeros(size(t));
+
+% --- PID Gains ---
+Kp = 2;         % proportional gain
+Ki = 1;         % integral gain
+Kd = 0.3;       % derivative gain
+
+% --- PID State Variables ---
+I = 0;          % integral accumulator
+e_prev = 0;     % for derivative action
+
+% --- Simulation Loop (Forward Euler) ---
+for k = 1:length(t)
+    
+    % Compute error
+    e = r(k) - y;
+    
+    % PID control law
+    P = Kp * e;
+    I = I + Ki * e * dt;
+    D = Kd * (e - e_prev) / dt;
+    
+    u = P + I + D;    % total control effort
+    
+    % First-order plant dynamics: dy/dt = (u - y)/tau
+    dy = (u - y) / tau;
+    y = y + dy * dt;
+    
+    % Save histories
+    Y(k) = y;
+    
+    % Update derivative memory
+    e_prev = e;
+end
+
+% --- Plot ---
+figure; hold on;
+plot(t, r, 'k--', 'LineWidth', 1.2);
+plot(t, Y, 'b', 'LineWidth', 1.8);
+xlabel('Time (s)'); ylabel('Amplitude');
+legend('Reference (Square)', 'Plant Output (PID Controlled)');
+title('Continuous-Time PID Control of First-Order Plant');
+grid on;
