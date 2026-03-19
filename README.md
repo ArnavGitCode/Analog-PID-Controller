@@ -30,11 +30,11 @@ Each block is hardware-implemented using:
 
 **Blocks Implemented**
 
-Error Computing Block: subtracts feedback from reference to generate control error.
-PID Network: implemented using three op-amp stages realizing P, I, and D actions in continuous time.
-Analog Buffer/Driver: isolates the PID network from plant loading.
-First Order RC Anti-Aliasing Filter: conditions the signal, attenuating high-frequency noise & derivative spikes.
-Feedback Path: returns plant output for steady-state error correction.
+##Error Computing Block: subtracts feedback from reference to generate control error.
+##PID Network: implemented using three op-amp stages realizing P, I, and D actions in continuous time.
+##Analog Buffer/Driver: isolates the PID network from plant loading.
+##First Order RC Anti-Aliasing Filter: conditions the signal, attenuating high-frequency noise & derivative spikes.
+##Feedback Path: returns plant output for steady-state error correction.
 
 **Op-Amp Selection**
 
